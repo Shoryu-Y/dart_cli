@@ -1,0 +1,1 @@
+{"dependencies":["flutter_riverpod","freezed_annotation"],"dev_dependencies":["pedantic_mono","freezed","json_serializable","build_runner"]}
