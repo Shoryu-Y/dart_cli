@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dart_cli/commons.dart';
 
-Future<void> analysisOptionsTemplate() async {
+void analysisOptionsTemplate() {
   if (!isFlutterProjectRoot) {
     print('Here is not Flutter Project Root Directory!'
         'Please execute at Flutter Project Root.');
