@@ -1,0 +1,23 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/controller/*.dart
+            - lib/notifier/*.dart
+            - lib/model/**.dart
+            - lib/features/*/notifier/*.dart
+            - lib/features/*/notifiers/*.dart
+          exclude:
+            - lib/**.freezed.dart
+      json_serializable:
+        generate_for:
+          include:
+            - lib/model/*.dart
+            - lib/model/*/*.dart
+          exclude:
+            - lib/**.g.dart
+        options:
+          any_map: true
+          explicit_to_json: true

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dart_cli/get_dependencies.dart';
+import 'package:dart_cli/pub_add_templates/get_dependencies.dart';
 
 Future<void> pubAddTemplates({required bool useFVM}) async {
   final (executable, arguments) = getCommands(useFVM: useFVM);

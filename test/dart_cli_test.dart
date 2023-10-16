@@ -1,4 +1,4 @@
-import 'package:dart_cli/pub_add_templates.dart';
+import 'package:dart_cli/pub_add_templates/pub_add_templates.dart';
 import 'package:test/test.dart';
 
 void main() {

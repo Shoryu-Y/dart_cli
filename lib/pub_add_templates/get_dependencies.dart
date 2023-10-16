@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:dart_cli/commons.dart';
+
 const dependenciesJsonFile = 'dependencies.json';
 
 const defaultDependencies = [
@@ -18,9 +20,7 @@ const dependenciesKey = 'dependencies';
 const devDependenciesKey = 'dev_dependencies';
 
 (List<String>, List<String>) getDependencies() {
-  final selfFilePath = Platform.script.path;
-  final projectPath = Directory(selfFilePath).parent.parent.path;
-  final dependenciesFilePath = '$projectPath/lib/$dependenciesJsonFile';
+  final dependenciesFilePath = '$cliRootPath/lib/$dependenciesJsonFile';
   final file = File(dependenciesFilePath);
 
   late final String json;
