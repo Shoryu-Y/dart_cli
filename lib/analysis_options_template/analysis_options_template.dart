@@ -19,7 +19,8 @@ void analysisOptionsTemplate() {
     return;
   }
 
-  print('analysis_options.yaml is already exist. Please Enter "yes" if want to override');
+  print(
+      'analysis_options.yaml is already exist. Please Enter "yes" if want to override');
   final confirmOverride = stdin.readLineSync() == 'yes';
   if (confirmOverride) {
     templateAnalysisFile.copySync(analysisFilePath);
