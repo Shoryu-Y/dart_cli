@@ -7,7 +7,6 @@ const defaultDependencies = [
   'flutter_riverpod',
   'freezed_annotation',
 ];
-
 const defaultDevDependencies = [
   'pedantic_mono',
   'freezed',
@@ -18,26 +17,22 @@ const defaultDevDependencies = [
 const dependenciesKey = 'dependencies';
 const devDependenciesKey = 'dev_dependencies';
 
-void main() {
-  final (dependencies, devDependencies) = getDependencies();
-}
-
 (List<String>, List<String>) getDependencies() {
   final selfFilePath = Platform.script.path;
   final projectPath = Directory(selfFilePath).parent.parent.path;
   final dependenciesFilePath = '$projectPath/lib/$dependenciesJsonFile';
   final file = File(dependenciesFilePath);
 
-  late final String dependenciesJson;
+  late final String json;
   if (!file.existsSync()) {
-    dependenciesJson = _getDefaultDependenciesJson();
+    json = _getDefaultDependenciesJson();
     file.createSync();
-    file.writeAsStringSync(dependenciesJson);
+    file.writeAsStringSync(json);
   } else {
-    dependenciesJson = file.readAsStringSync();
+    json = file.readAsStringSync();
   }
 
-  final values = json.decode(dependenciesJson) as Map<String, dynamic>;
+  final values = jsonDecode(json) as Map<String, dynamic>;
   final dependencies = (values[dependenciesKey] as List<dynamic>)
       .map((e) => e as String)
       .toList();
@@ -54,5 +49,5 @@ String _getDefaultDependenciesJson() {
     dependenciesKey: defaultDependencies,
     devDependenciesKey: defaultDevDependencies,
   };
-  return json.encode(defaultValues);
+  return jsonEncode(defaultValues);
 }
