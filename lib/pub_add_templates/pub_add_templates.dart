@@ -1,8 +1,13 @@
 import 'dart:io';
 
+import 'package:dart_cli/commons.dart';
 import 'package:dart_cli/pub_add_templates/get_dependencies.dart';
 
 Future<void> pubAddTemplates({required bool useFVM}) async {
+  if (!isFlutterProjectRoot) {
+    return;
+  }
+
   final (executable, arguments) = getCommands(useFVM: useFVM);
   final (dependencies, devDependencies) = getDependencies();
   final list = dependencies.map(
