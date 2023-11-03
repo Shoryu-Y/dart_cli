@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:dart_cli/commons.dart';
+import 'package:dart_cli/exception.dart';
 
 void buildYAMLTemplate() {
   if (!isFlutterProjectRoot) {
-    return;
+    throw NotFlutterRootException();
   }
 
   final currentPath = Directory.current.path;

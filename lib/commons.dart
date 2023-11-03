@@ -10,8 +10,6 @@ bool get isFlutterProjectRoot {
   final pubspecFile = File('$currentPath/pubspec.yaml');
   final libDir = Directory('$currentPath/lib');
   if (!pubspecFile.existsSync() || !libDir.existsSync()) {
-    print('Here is not Flutter project root directory!'
-        'Please execute at Flutter project root.');
     return false;
   }
 
