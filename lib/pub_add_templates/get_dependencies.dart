@@ -20,7 +20,7 @@ const dependenciesKey = 'dependencies';
 const devDependenciesKey = 'dev_dependencies';
 
 (List<String>, List<String>) getDependencies() {
-  final dependenciesFilePath = '$cliRootPath/lib/$dependenciesJsonFile';
+  final dependenciesFilePath = '$cliRootPath/lib/pub_add_templates/$dependenciesJsonFile';
   final file = File(dependenciesFilePath);
 
   late final String json;
